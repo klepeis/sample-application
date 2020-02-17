@@ -4,7 +4,7 @@ using Ordering.Domain.AggregatesModel;
 
 namespace Ordering.Infrastructure.EntityTypeConfigurations
 {
-    class OrderItemEntityTypeConfiguration : IEntityTypeConfiguration<OrderItem>
+    internal class OrderItemEntityTypeConfiguration : IEntityTypeConfiguration<OrderItem>
     {
         public void Configure(EntityTypeBuilder<OrderItem> orderItemConfiguration)
         {
