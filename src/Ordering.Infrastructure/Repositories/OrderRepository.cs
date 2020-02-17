@@ -1,5 +1,5 @@
 ﻿using Ordering.Domain.AggregatesModel;
-using Ordering.Domain.Framework;
+using Ordering.Framework;
 using System;
 using System.Threading.Tasks;
 

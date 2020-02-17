@@ -7,8 +7,4 @@
     <StartupObject />
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Ordering.Framework\Ordering.Framework.csproj" />
-  </ItemGroup>
-
 </Project>

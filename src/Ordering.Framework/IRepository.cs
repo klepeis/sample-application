@@ -1,4 +1,4 @@
-﻿namespace Ordering.Domain.Framework
+﻿namespace Ordering.Framework
 {
     public interface IRepository<T> where T : IAggregateRoot
     {

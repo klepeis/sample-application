@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Ordering.Domain.Framework
+namespace Ordering.Framework
 {
     public abstract class ValueObject
     {

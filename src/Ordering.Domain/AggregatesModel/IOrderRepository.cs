@@ -1,4 +1,4 @@
-﻿using Ordering.Domain.Framework;
+﻿using Ordering.Framework;
 using System.Threading.Tasks;
 
 namespace Ordering.Domain.AggregatesModel

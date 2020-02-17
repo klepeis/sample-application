@@ -1,4 +1,4 @@
-﻿using Ordering.Domain.Framework;
+﻿using Ordering.Framework;
 using System;
 using System.Collections.Generic;
 using System.Text;

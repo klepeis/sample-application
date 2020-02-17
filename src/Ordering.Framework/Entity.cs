@@ -1,4 +1,4 @@
-﻿namespace Ordering.Domain.Framework
+﻿namespace Ordering.Framework
 {
     public abstract class Entity
     {

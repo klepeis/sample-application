@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using Ordering.Domain.AggregatesModel;
-using Ordering.Domain.Framework;
+using Ordering.Framework;
 using Ordering.Infrastructure.EntityTypeConfigurations;
 using System;
 using System.Threading.Tasks;
