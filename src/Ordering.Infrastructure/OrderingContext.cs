@@ -12,7 +12,9 @@ namespace Ordering.Infrastructure
     {
         private IDbContextTransaction _currentTransaction;
 
+        public const string DEFAULT_SCHEMA = "ordering";
         public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
 
         public OrderingContext(DbContextOptions<OrderingContext> options)
             :base(options) { }
@@ -95,6 +97,7 @@ namespace Ordering.Infrastructure
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new OrderEntityTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new OrderItemEntityTypeConfiguration());
         }
     }
 }
