@@ -1,7 +1,7 @@
 ﻿using Ordering.Framework;
 using System.Collections.Generic;
 
-namespace Ordering.Domain.AggregatesModel
+namespace Ordering.Domain.AggregatesModel.OrderAggregate
 {
     public class Address : ValueObject
     {

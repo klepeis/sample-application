@@ -1,14 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
-using Ordering.Domain.AggregatesModel;
-using Ordering.Framework;
+using Ordering.Domain.AggregatesModel.OrderAggregate;
 using Ordering.Infrastructure.EntityTypeConfigurations;
 using System;
 using System.Threading.Tasks;
 
 namespace Ordering.Infrastructure
 {
-    public class OrderingContext : DbContext, IUnitOfWork
+    public class OrderingContext : DbContext
     {
         private IDbContextTransaction _currentTransaction;
 
@@ -88,11 +87,6 @@ namespace Ordering.Infrastructure
 
         #endregion
 
-
-        public Task Commit()
-        {
-            throw new NotImplementedException();
-        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

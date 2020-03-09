@@ -1,7 +1,7 @@
 ﻿using Ordering.Domain.Exceptions;
 using Ordering.Framework;
 
-namespace Ordering.Domain.AggregatesModel
+namespace Ordering.Domain.AggregatesModel.OrderAggregate
 {
     public class OrderItem : Entity
     {

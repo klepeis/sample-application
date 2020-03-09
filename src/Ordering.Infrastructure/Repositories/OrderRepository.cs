@@ -1,39 +1,13 @@
-﻿using Ordering.Domain.AggregatesModel;
-using Ordering.Framework;
-using System;
-using System.Threading.Tasks;
+﻿using Ordering.Domain.AggregatesModel.OrderAggregate;
 
 namespace Ordering.Infrastructure.Repositories
 {
-    public class OrderRepository : IOrderRepository
-    {
-        private readonly OrderingContext _context;
-        public IUnitOfWork UnitOfWOrk 
-        {
-            get 
-            {
-                return _context;
-            }
-        }
+    public class OrderRepository : Repository<Order>, IOrderRepository
+    {    
 
         public OrderRepository(OrderingContext context)
+            :base(context)
         {
-            _context = context ?? throw new ArgumentNullException(nameof(context));
-        }
-
-        public Order Add(Order order)
-        {
-            return _context.Orders.Add(order).Entity;
-        }
-
-        public Task<Order> GetAsync(int orderId)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void Update(Order order)
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

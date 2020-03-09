@@ -1,7 +1,21 @@
-﻿namespace Ordering.Framework
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
+
+namespace Ordering.Framework
 {
-    public interface IRepository<T> where T : IAggregateRoot
+    public interface IRepository<TEntity> where TEntity : class
     {
-        IUnitOfWork UnitOfWOrk { get; }
+        TEntity Get(int id);
+        IEnumerable<TEntity> GetAll();
+        IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate);
+        TEntity SingleOrDefault(Expression<Func<TEntity, bool>> predicate);
+
+        void Add(TEntity entity);
+        void AddRange(IEnumerable<TEntity> entities);
+
+        void Remove(TEntity entity);
+        void RemoveRange(IEnumerable<TEntity> entities);
+
     }
 }
