@@ -1,4 +1,5 @@
-# API Project Components
+# API Project
+The API Project is the "edge" of our application, that means that it is the publicly accessible entry point to interact with out application.  There can be multiple "edge" projects for any given application.  It depends on the number of ways you want to allow you application to be interacted with.
 
 ## API Request Models
 
