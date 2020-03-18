@@ -8,6 +8,7 @@
  2. Application Layer
     * This purpose of this layer is to decouple the edge layer from the application.  In the event that you want to have multiple edge interfaces to the application they all simply need to make use of the application layer.
     * This layer is responsible for defining the jobs/tasks that the software is suppose to work out.  There is no business logic here.  This is a thin later that is responsible for coordinating tasks and delegating work to the domain objects in the next layer down.
+    * This layer is responsible for translating primate types from the request model to the value types needed by the domain layer.
  3. Domain Layer
     * This is the most critical part of the software.
     * Responsible for representing concepts of the business, information about the business situation, and business rules.
@@ -24,6 +25,9 @@
    * 10 minute video tutorial on implementing the [Repository Pattern w/ Unit of Work](https://youtube.com/watch?v=rtXpYpZdOzM)
 2. [Unit of work](https://www.martinfowler.com/eaaCatalog/unitOfWork.html)
  persisted.  persistance is managed by unitofwork.
+3. **Look @ Command Handler Pattern**
+   * Only practical if you have two or 3 methods otherwise gets kinda crazy to manage (PAckt 168)
+   * Recommend using Factory so each method can instantiate its own handler.
 
 ## Notes
 * Framework namespace in Domain project.
