@@ -1,20 +1,26 @@
-﻿using Ordering.Framework;
+﻿using Ordering.Domain.AggregatesModel.OrderAggregate;
+using Ordering.Framework;
 using System.Threading.Tasks;
 
 namespace Ordering.Infrastructure
 {
     public class EFCoreUnitOfWork : IUnitOfWork
     {
-        private readonly OrderingContext _dbContext;
+        private readonly OrderingContext _context;
 
-        public EFCoreUnitOfWork(OrderingContext dbContext)
+        public EFCoreUnitOfWork(OrderingContext context)
         {
-            _dbContext = dbContext;
+            _context = context;
         }
 
         public Task Commit()
         {
-            return _dbContext.SaveChangesAsync();
+            return _context.SaveChangesAsync();
+        }
+
+        public void Dispose()
+        {
+            _context.Dispose();
         }
     }
 }

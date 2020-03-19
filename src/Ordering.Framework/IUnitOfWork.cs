@@ -4,6 +4,6 @@ namespace Ordering.Framework
 {
     public interface IUnitOfWork
     {
-        Task Complete();
+        Task Commit();
     }
 }

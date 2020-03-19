@@ -31,7 +31,6 @@ namespace Ordering.API
 
             //Create Entity using Value Object.
             Order order = new Order(address);
-
             _orderRepository.Add(order);
 
             await _unitOfWork.Commit();
