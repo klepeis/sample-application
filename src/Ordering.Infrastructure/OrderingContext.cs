@@ -87,6 +87,7 @@ namespace Ordering.Infrastructure
 
         #endregion
 
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new OrderEntityTypeConfiguration());
