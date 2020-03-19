@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Ordering.API.Order;
 using Ordering.Domain.AggregatesModel.OrderAggregate;
 using Ordering.Framework;
 using Ordering.Infrastructure;
@@ -14,7 +15,7 @@ namespace Ordering.API.Extensions.DependencyInjection
             services.AddDbContext<OrderingContext>(options =>
             {
                 string connectionStr = "";
-                options.UseSqlServer(connectionStr);
+                //options.UseSqlServer(connectionStr);
             });
 
             services.AddScoped<IOrderRepository, OrderRepository>();

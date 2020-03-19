@@ -1,15 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
-namespace Ordering.API.Controllers
+namespace Ordering.API.Order
 {
     [Route("api/order")]
     [ApiController]
-    public class OrdersCommandController : ControllerBase
+    public class OrderCommandApi : ControllerBase
     {
         private readonly OrdersApplicationService _applicationService;
 
-        public OrdersCommandController(OrdersApplicationService applicationService)
+        public OrderCommandApi(OrdersApplicationService applicationService)
         {
             _applicationService = applicationService;
         }
@@ -20,10 +20,16 @@ namespace Ordering.API.Controllers
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IActionResult> Post(Contracts.Orders.V1.Create request)
+        public async Task<IActionResult> Post(Contracts.V1.Create request)
         {
             await _applicationService.Handle(request);
             return Ok();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            return Ok("I worked!");
         }
     }
 }

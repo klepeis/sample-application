@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace Ordering.API.Contracts
+﻿namespace Ordering.API.Order
 {
-    public static class Orders
+    public static class Contracts
     {
         public static class V1
         {

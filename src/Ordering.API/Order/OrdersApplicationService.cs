@@ -1,9 +1,9 @@
 ﻿using Ordering.Domain.AggregatesModel.OrderAggregate;
 using Ordering.Framework;
 using System.Threading.Tasks;
-using static Ordering.API.Contracts.Orders;
+using OrderingAggregate = Ordering.Domain.AggregatesModel.OrderAggregate;
 
-namespace Ordering.API
+namespace Ordering.API.Order
 {
     public class OrdersApplicationService : IApplicationService
     {
@@ -19,18 +19,18 @@ namespace Ordering.API
         public Task Handle(object command) =>
             command switch
             {
-                V1.Create cmd =>
+                Contracts.V1.Create cmd =>
                     HandleCreate(cmd),
                 _ => Task.CompletedTask
             };
 
-        private async Task HandleCreate(V1.Create cmd)
+        private async Task HandleCreate(Contracts.V1.Create cmd)
         {
             //Create Value Object that is required for Entity from request.
-            Address address = new Address(cmd.Street, cmd.City, cmd.State, cmd.Country, cmd.ZipCode);
+            OrderingAggregate.Address address = new OrderingAggregate.Address(cmd.Street, cmd.City, cmd.State, cmd.Country, cmd.ZipCode);
 
             //Create Entity using Value Object.
-            Order order = new Order(address);
+            OrderingAggregate.Order order = new OrderingAggregate.Order(address);
             _orderRepository.Add(order);
 
             await _unitOfWork.Commit();
