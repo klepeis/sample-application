@@ -1,5 +1,4 @@
-﻿using Ordering.Domain.AggregatesModel;
-using Ordering.Framework;
+﻿using Ordering.Domain.AggregatesModel.OrderAggregate;
 using System;
 using System.Threading.Tasks;
 
@@ -8,13 +7,6 @@ namespace Ordering.Infrastructure.Repositories
     public class OrderRepository : IOrderRepository
     {
         private readonly OrderingContext _context;
-        public IUnitOfWork UnitOfWOrk 
-        {
-            get 
-            {
-                return _context;
-            }
-        }
 
         public OrderRepository(OrderingContext context)
         {

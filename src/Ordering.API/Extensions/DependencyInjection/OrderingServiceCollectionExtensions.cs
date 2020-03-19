@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Ordering.Domain.AggregatesModel;
+using Ordering.Domain.AggregatesModel.OrderAggregate;
+using Ordering.Framework;
 using Ordering.Infrastructure;
 using Ordering.Infrastructure.Repositories;
 
@@ -17,12 +18,14 @@ namespace Ordering.API.Extensions.DependencyInjection
             });
 
             services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IUnitOfWork, EFCoreUnitOfWork>();
 
             //TODO: Should this be a singleton?
-            services.AddSingleton<OrdersApplicationService>((sp) =>
+            services.AddScoped((sp) =>
             {
                 IOrderRepository orderRepository = sp.GetRequiredService<IOrderRepository>();
-                return new OrdersApplicationService(orderRepository);
+                IUnitOfWork unitOfWork = sp.GetRequiredService<IUnitOfWork>();
+                return new OrdersApplicationService(orderRepository, unitOfWork);
             });
 
             return services;

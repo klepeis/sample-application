@@ -22,7 +22,7 @@ namespace Ordering.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Post(Contracts.Orders.V1.Create request)
         {
-            _applicationService.Handle(request);
+            await _applicationService.Handle(request);
             return Ok();
         }
     }

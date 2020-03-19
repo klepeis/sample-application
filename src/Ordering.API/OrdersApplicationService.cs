@@ -1,4 +1,4 @@
-﻿using Ordering.Domain.AggregatesModel;
+﻿using Ordering.Domain.AggregatesModel.OrderAggregate;
 using Ordering.Framework;
 using System.Threading.Tasks;
 using static Ordering.API.Contracts.Orders;
@@ -8,10 +8,12 @@ namespace Ordering.API
     public class OrdersApplicationService : IApplicationService
     {
         private readonly IOrderRepository _orderRepository;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public OrdersApplicationService(IOrderRepository orderRepository)
+        public OrdersApplicationService(IOrderRepository orderRepository, IUnitOfWork unitOfWork)
         {
             _orderRepository = orderRepository;
+            _unitOfWork = unitOfWork;
         }
 
         public Task Handle(object command) =>
@@ -31,9 +33,8 @@ namespace Ordering.API
             Order order = new Order(address);
 
             _orderRepository.Add(order);
-            //TODO: Do we need this?
-            //_orderRepository.Save();
-            // Packt Page 178
+
+            await _unitOfWork.Commit();
         }
     }
 }

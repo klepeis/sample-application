@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Ordering.Domain.AggregatesModel
+namespace Ordering.Domain.AggregatesModel.OrderAggregate
 {
     public class Order : Entity, IAggregateRoot
     {
