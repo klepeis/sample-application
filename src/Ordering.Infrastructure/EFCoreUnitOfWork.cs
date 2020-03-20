@@ -1,5 +1,4 @@
-﻿using Ordering.Domain.AggregatesModel.OrderAggregate;
-using Ordering.Framework;
+﻿using Ordering.Framework;
 using System.Threading.Tasks;
 
 namespace Ordering.Infrastructure
