@@ -9,5 +9,5 @@ The **Entity** base class contains an Id property as each entity is required to 
 TODO: Should the Entity Base Class contain an equality override?
 
 ### ValueObject Base Class
-Unlike an **entity** that is only concerned with are the id's the same to determine equality a value object actually compares all of the properties in an object to determine equality.  The **ValueObject** base class provides a common set of methods for performing these equality operations.
+Unlike an **entity** that is only concerned with are the id's the same to determine equality a **value object** actually compares all of the properties in an object to determine equality.  The **ValueObject** base class provides a common set of methods for performing these equality operations.
 
