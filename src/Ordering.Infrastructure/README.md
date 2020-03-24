@@ -16,6 +16,9 @@ The DbContexts are the objects that bind together all of the configuration eleme
 
 This [site](http://anthonygiretti.com/2018/01/11/entity-framework-core-2-entity-type-configuration/) provides a simple example as to how to work with Entity Type Configurations.
 
+#### Things to note
+* When using the **aggregate design** pattern it is not necessary to maintain object relations with the ORM (Entity Framework).  The control of traversing the objects is maintained by the objects themselves and not the ORM.  This reduces some complexities associated with configuring the relationships and also ensures that one is not using the ORM to traverse to an object outside of the aggregates scope.  The aggregate is responsible for ensuring the consistency/integrity of the objects it contains.  
+
 ### Repositories and Unit Of Work
 
 The **repositories** and the **unit of work** objects are stored in the **infrastructure layer**.  A **repository** provides access to retrieve an object from a data store and modify its values in memory, ***but not persist the changes to the store***.  In the past if we had to update multiple database records as part of an operation we would create a stored procedure or use Entity to handle this complex action one record at a time.  This is where **unit of work** comes into play.  **Unit of work** allows us to manipulate multiple records in a given context in memory and then once all of the necessary updates have been made commit the changes to the store.

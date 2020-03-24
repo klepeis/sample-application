@@ -25,7 +25,8 @@
    * 10 minute video tutorial on implementing the [Repository Pattern w/ Unit of Work](https://youtube.com/watch?v=rtXpYpZdOzM)
 2. [Unit of work](https://www.martinfowler.com/eaaCatalog/unitOfWork.html)
  persisted.  persistance is managed by unitofwork.
-3. **Look @ Command Handler Pattern**
+3. [Aggregate](https://www.martinfowler.com/bliki/DDD_Aggregate.html)
+4. **Look @ Command Handler Pattern**
    * Only practical if you have two or 3 methods otherwise gets kinda crazy to manage (PAckt 168)
    * Recommend using Factory so each method can instantiate its own handler.
 
