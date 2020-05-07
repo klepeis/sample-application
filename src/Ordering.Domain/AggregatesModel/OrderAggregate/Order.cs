@@ -12,6 +12,10 @@ namespace Ordering.Domain.AggregatesModel.OrderAggregate
         // aligned with DDD Aggregates and Domain Entities (Instead of properties and property collections)
         private DateTime _orderDate;
 
+
+
+        //Aggregate State Properties
+
         // Address is a Value Object pattern example persisted as EF Core 2.0 owned entity
         public Address Address { get; private set; }
 
@@ -25,11 +29,31 @@ namespace Ordering.Domain.AggregatesModel.OrderAggregate
         private readonly List<OrderItem> _orderItems;
         public IReadOnlyCollection<OrderItem> OrderItems => _orderItems;
 
+
+        #region Constructors
+
+        /// <summary>
+        /// This constructor is used when creating a new order.
+        /// </summary>
+        /// <param name="address"></param>
+        /// <param name="buyerId"></param>
         public Order(Address address, int? buyerId = null)
+            :this()
         {
             _orderDate = DateTime.UtcNow;
             Address = address;
+            _buyerId = buyerId;
         }
+
+        /// <summary>
+        /// This constructor is needed since the object is tied to Entity Framework and needs a parameterless constructor.
+        /// </summary>
+        protected Order()
+        {
+            _orderItems = new List<OrderItem>();
+        }
+
+        #endregion
 
         // DDD Patterns comment
         // This Order AggregateRoot's method "AddOrderitem()" should be the only way to add Items to the Order,

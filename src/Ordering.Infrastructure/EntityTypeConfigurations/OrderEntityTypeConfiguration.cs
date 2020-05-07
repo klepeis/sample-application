@@ -22,11 +22,11 @@ namespace Ordering.Infrastructure.EntityTypeConfigurations
             orderConfiguration.Property<int?>("PaymentMethodId").IsRequired(false);
             orderConfiguration.Property<string>("Description").IsRequired(false);
 
-            var navigation = orderConfiguration.Metadata.FindNavigation(nameof(Order.OrderItems));
+            //var navigation = orderConfiguration.Metadata.FindNavigation(nameof(Order.OrderItems));
 
             // DDD Patterns comment:
             //Set as field (New since EF 1.1) to access the OrderItem collection property through its field
-            navigation.SetPropertyAccessMode(PropertyAccessMode.Field);
+            //navigation.SetPropertyAccessMode(PropertyAccessMode.Field);
         }
     }
 }

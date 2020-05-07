@@ -1,5 +1,6 @@
 ﻿using Ordering.Domain.AggregatesModel.OrderAggregate;
 using Ordering.Framework;
+using System.Linq;
 using System.Threading.Tasks;
 using OrderingAggregate = Ordering.Domain.AggregatesModel.OrderAggregate;
 
