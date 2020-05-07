@@ -1,6 +1,6 @@
 ﻿namespace Ordering.API.Order
 {
-    public static class Contracts
+    public static class Commands
     {
         public static class V1
         {

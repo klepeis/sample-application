@@ -20,7 +20,7 @@ namespace Ordering.API.Order
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IActionResult> Post(Contracts.V1.Create request)
+        public async Task<IActionResult> Post(Commands.V1.Create request)
         {
             await _applicationService.Handle(request);
             return Ok();

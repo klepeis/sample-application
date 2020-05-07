@@ -20,12 +20,12 @@ namespace Ordering.API.Order
         public Task Handle(object command) =>
             command switch
             {
-                Contracts.V1.Create cmd =>
+                Commands.V1.Create cmd =>
                     HandleCreate(cmd),
                 _ => Task.CompletedTask
             };
 
-        private async Task HandleCreate(Contracts.V1.Create cmd)
+        private async Task HandleCreate(Commands.V1.Create cmd)
         {
             //Create Value Object that is required for Entity from request.
             OrderingAggregate.Address address = new OrderingAggregate.Address(cmd.Street, cmd.City, cmd.State, cmd.Country, cmd.ZipCode);
