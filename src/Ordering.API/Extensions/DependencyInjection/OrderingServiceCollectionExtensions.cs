@@ -1,7 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
 using Ordering.Application.Order;
 using Ordering.Domain.AggregatesModel.OrderAggregate;
 using Ordering.Framework;
