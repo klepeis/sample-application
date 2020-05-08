@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Ordering.Infrastructure;
+using Ordering.Application.Order;
+using System.Threading.Tasks;
 
 namespace Ordering.API.Order
 {
@@ -7,13 +8,17 @@ namespace Ordering.API.Order
     [ApiController]
     public class OrderQueryApi : ControllerBase
     {
-        private readonly OrdersApplicationService _applicationService;
+        private readonly OrdersQueryService _applicationService;
 
-        public OrderQueryApi()
+        public OrderQueryApi(OrdersQueryService applicationService)
         {
-           
+            _applicationService = applicationService;
         }
 
-        
+        public async Task<IActionResult> Get(QueryModels.GetOrderItem request)
+        {
+            // TODO: Look @ Request Handler.
+            return Ok(await _applicationService.Query(request));
+        }
     }
 }

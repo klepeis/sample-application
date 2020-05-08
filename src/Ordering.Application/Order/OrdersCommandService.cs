@@ -1,17 +1,16 @@
 ﻿using Ordering.Domain.AggregatesModel.OrderAggregate;
 using Ordering.Framework;
-using System.Linq;
 using System.Threading.Tasks;
 using OrderingAggregate = Ordering.Domain.AggregatesModel.OrderAggregate;
 
-namespace Ordering.API.Order
+namespace Ordering.Application.Order
 {
-    public class OrdersApplicationService : IApplicationService
+    public class OrdersCommandService : IApplicationService
     {
         private readonly IOrderRepository _orderRepository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public OrdersApplicationService(IOrderRepository orderRepository, IUnitOfWork unitOfWork)
+        public OrdersCommandService(IOrderRepository orderRepository, IUnitOfWork unitOfWork)
         {
             _orderRepository = orderRepository;
             _unitOfWork = unitOfWork;

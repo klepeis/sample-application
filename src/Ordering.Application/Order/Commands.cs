@@ -1,4 +1,4 @@
-﻿namespace Ordering.API.Order
+﻿namespace Ordering.Application.Order
 {
     public static class Commands
     {

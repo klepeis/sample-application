@@ -1,15 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Ordering.Application.Order;
 using System.Threading.Tasks;
 
 namespace Ordering.API.Order
 {
-    [Route("api/order")]
+    [Route("/order")]
     [ApiController]
     public class OrderCommandApi : ControllerBase
     {
-        private readonly OrdersApplicationService _applicationService;
+        private readonly OrdersCommandService _applicationService;
 
-        public OrderCommandApi(OrdersApplicationService applicationService)
+        public OrderCommandApi(OrdersCommandService applicationService)
         {
             _applicationService = applicationService;
         }
