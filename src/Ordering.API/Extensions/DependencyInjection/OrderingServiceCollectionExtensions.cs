@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using Ordering.Application.Order;
 using Ordering.Domain.AggregatesModel.OrderAggregate;
 using Ordering.Framework;
@@ -31,7 +34,12 @@ namespace Ordering.API.Extensions.DependencyInjection
             //TODO: Should this be a singleton?
             services.AddScoped((sp) =>
             {
+                // Since the query service should not be able to persist any changes we will configure the instance of the DbContext
+                // that is being used to have Change Tracking disabled.  Since no changes are being tracked if a Save operation is performed
+                // on the DbContext nothing will be persisted.
                 OrderingContext orderingContext = sp.GetRequiredService<OrderingContext>();
+                orderingContext.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
+                
                 return new OrdersQueryService(orderingContext);
             });
 

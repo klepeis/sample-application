@@ -15,8 +15,10 @@ namespace Ordering.Application.Order
 
         public async Task<OrderItem> Query(QueryModels.GetOrderItem query)
         {
-            //Is it a problem that the Aggregate is returned?  Since we are using EF on both read 
+            //Is it a problem that the Aggregate is returned?  Since we are using EF for both read 
             //and command same Data Models are used
+            //This might handle the "Fund Name" scenario.
+
 
             var queryResult = await _orderingContext.OrderItems.FindAsync(query.OrderItemId);
 
